@@ -1,3 +1,4 @@
+//Download this one for the simple self driving car. I messed up on first one I added or you can copy and paste that one I guess. 
 
 #include <AFMotor.h>
 #include <Servo.h>
@@ -5,10 +6,10 @@
 AF_DCMotor motor(4);
 #define MAX_SPEED 255
 #define SERVO2_PWM9 
-//#define steeringservo;
-//#define steeringservo.write;
+
+
  
-//Servo Servo_2;
+
 Servo steeringservo;
 
 
