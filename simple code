@@ -1,0 +1,68 @@
+ This is just a starting point for a self driving car. You can add different sensors if you want 
+ or just change some of the variables to get different results. It is set up to drive in a square.
+ This is my first post on git hub I just wanted to see how to post code.
+ Of course this is goverened under all the standard open source copyrights and you can do whatever
+ you want with the code! 
+ This is written for Arduino UNO and the Adafruit motorshield version 1 I used a New Bright RC truck
+ as the base and added a servo for the steering.
+ 
+ 
+ 
+ 
+ #include <AFMotor.h>  // Grab the version 1 motorshield code from Adafruit
+  #include <Servo.h> 
+  
+  AF_DCMotor motor(4); // I used motor output #4
+  #define MAX_SPEED 255 // The max speed of the motorshield
+  #define SERVO2_PWM9  // The motor shield passes through the servo PWM signal from UNO on pin 9 for servo #2
+   
+  Servo steeringservo; 
+  
+  
+  Void setup() {
+  steeringservo.attach(9);  //Makes pin 9 servo output PWM
+  steeringservo.write(90);  //This is center on servo
+  steeringservo.write(0);   //This is to left
+  sterringservo.write(100); //This is to right. My chassis couldn't handle full deflection so set to 180 for full right
+  motor.setSpeed(255);
+  motor.run(RELEASE);
+  motor.setSpeed(255);
+  motor.run(FORWARD);
+  motor.setSpeed(255);
+  motor.run(BACKWARD);
+  
+  }
+  
+  void loop()  {
+  motor.run(FORWARD);
+  delay(2000);  //run motor forward for 2 seconds
+  steeringservo.write(90); //steer straight
+  motor.run(FORWARD);
+  delay(2000);
+  steeringservo.write(10); //turn left
+  motor.run(FORWARD);
+  delay(2000);
+  steeringservo.write(90); //go straight
+  motor.run(FORWARD);
+  delay(2000);
+  steeringservo.write(10); //turn left
+  motor.run(FORWARD);
+  delay(2000);
+  steeringservo.write(90); //go straight
+  motor.run(FORWARD);
+  delay(2000);
+  steeringservo.write(10); //turn left
+  motor.run(FORWARD);
+  delay(2000);
+  steeringservo.write(90); //go straight
+  motor.run(FORWARD);
+  delay(2000);
+  steeringservo.write(10);
+  motor.run(FORWARD)'
+  delay(2000);
+  steeringservo.write(90);
+  motor.run(RELEASE);
+  delay(10000); //stops motor for 10 seconds so you can catch it 
+  
+  }
+  
